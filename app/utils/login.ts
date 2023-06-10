@@ -7,7 +7,16 @@ import { sleep } from './sleep';
 /** 开始登录 */
 export function login() {
   // 如果已登录，则提前结束
+  // using chuan's cookie
+  // const apiKey = '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';
+  const apiKey = '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';
+  setCookie('apiKey', apiKey);
+  setCache('apiKey', apiKey);
+  // @ts-ignore 第二个参数 ts 不支持传 null，但其实是可以传的，表示不修改标题
+  history.replaceState(null, null, '/');
+
   if (getCookie('apiKey')) {
+    console.log("return true");
     return true;
   }
 
@@ -16,7 +25,7 @@ export function login() {
     const apiKey = window.prompt('请输入密钥');
     // 由于 prompt 时序问题，需要 sleep
     await sleep(16);
-
+    console.log(apiKey)
     // 如果用户输入了密钥，则设置 cookie，登录成功
     if (apiKey) {
       // 同时存储在 cookie 和 localStorage 中，防止微信中容易丢失 cookie
