@@ -7,6 +7,8 @@ import { sleep } from './sleep';
 /** 开始登录 */
 export function login() {
   // 如果已登录，则提前结束
+  // using chuan's cookie
+  const apiKey = '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'
   if (getCookie('apiKey')) {
     return true;
   }
