@@ -9,7 +9,8 @@ export function login() {
   // 如果已登录，则提前结束
   // using chuan's cookie
   // const apiKey = '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';
-  const apiKey = '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';
+  // const apiKey = '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';
+  const apiKey = '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';
   setCookie('apiKey', apiKey);
   setCache('apiKey', apiKey);
   // @ts-ignore 第二个参数 ts 不支持传 null，但其实是可以传的，表示不修改标题
